@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body onload="getLocation()">
+
+	<head>
+		<link href="exo1.css" rel="stylesheet" type="text/css">
+		<title> exo1 </title>
+	</head>
+
+	<div class="bannerman">
+		<div class="titre">
+			<p> BANNERMAN </p>
+		</div>
+
+		<p class="check"> Checkin</p>
+
+		<div id="bord">
+
+		<button id="button" onclick="toggleDisplay()">Click to checkin!</button>
+
+		</div>
+
+		<div id="hide" style="display:none;">
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<script>
+		var x = document.getElementById("hide");
+
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position)
+				{
+
+					x.innerHTML = " <p class='pos'>Well done ! </br> Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude + "</p>";
+					
+				});
+
+			} else { 
+				x.innerHTML = "Geolocation non autorisée.";
+			}
+		}
+
+		var elmt = document.getElementById("hide");
+		var elmt2 = document.getElementById("bord");
+
+		function toggleDisplay(){
+			elmt.style.display = "";
+			elmt2.style.display = "none";
+
+
+
+		}
+
+/*function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    " Longitude: " + position.coords.longitude;	
+}*/
+</script>
+
+<script src="emitter.js" type="text/javascript"></script>
+
+</body>
+</html>
